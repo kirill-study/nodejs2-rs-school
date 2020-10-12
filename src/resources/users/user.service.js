@@ -6,4 +6,10 @@ const get = id => usersRepo.get(id);
 
 const create = user => usersRepo.create(user);
 
-module.exports = { getAll, get, create };
+const delete_ = user => usersRepo.delete_(user);
+
+const update = req => {
+  usersRepo.update(req);
+};
+
+module.exports = { getAll, get, create, delete_, update };

@@ -11,8 +11,19 @@ const get = async id => {
   return user;
 };
 
+const delete_ = async id => {
+  DB.deleteUser(id);
+};
+
 const create = async user => {
   return DB.createUser(user);
 };
 
-module.exports = { getAll, get, create };
+const update = async req => {
+  const user = await DB.getUser(req.params.id);
+  user.login = req.body.login;
+  user.name = req.body.name;
+  user.password = req.body.password;
+};
+
+module.exports = { getAll, get, create, delete_, update };

@@ -14,4 +14,8 @@ const createUser = async user => {
   return user;
 };
 
-module.exports = { getAllUsers, getUser, createUser };
+const deleteUser = async id => {
+  DB.splice(DB.indexOf(id), 1);
+};
+
+module.exports = { getAllUsers, getUser, createUser, deleteUser };

@@ -30,4 +30,14 @@ router.route('/').post(async (req, res) => {
   res.json(User.toResponse(user));
 });
 
+router.route('/:id').delete(async (req, res) => {
+  usersService.delete_(req.params.id);
+  res.status(204).send();
+});
+
+router.route('/:id').put(async (req, res) => {
+  usersService.update(req);
+  res.writeHead(200, { 'Content-Type': 'application/json' }).send();
+});
+
 module.exports = router;
