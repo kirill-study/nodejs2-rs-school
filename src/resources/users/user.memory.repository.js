@@ -13,6 +13,7 @@ const get = async id => {
 
 const delete_ = async id => {
   DB.deleteUser(id);
+  // DB.unassignUserTasks(id);
 };
 
 const create = async user => {
